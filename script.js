@@ -1,26 +1,34 @@
-let Rock = 1
-let Paper = 2
-let Scissors = 3
-let options = ['Rock', 'Paper', 'Scissors']
 
-function getComputerChoice(options) {
+let getComputer = function() {
+    let options = ['Rock', 'Paper', 'Scissors']
     return options[(Math.floor(Math.random() * options.length))];
 };
-console.log(getComputerChoice(options));
-const computerSelection = getComputerChoice(options);
+
+let getPlayer = function() {
+    let playerReply = prompt("Choose Rock, Paper, or Scissors:");
+    let playerSelection = playerReply.replace((playerReply), (playerReply.charAt(0).toUpperCase() + playerReply.slice(1).toLowerCase()));
+    return playerSelection;
+};
+
+let playRound = function() {
+    let playerSelection = getPlayer();
+    let computerSelection = getComputer();
 
 
-const playerReply = prompt("Choose Rock, Paper, or Scissors:");
-console.log(playerReply);
-const playerSelection = playerReply.replace((playerReply), (playerReply.charAt(0).toUpperCase() + playerReply.slice(1).toLowerCase()));
-console.log(playerSelection);
-
-
-function rockPaperScissors(playerSelection, computerSelection) {
     if ((playerSelection == 'Rock' && computerSelection == 'Paper') || (playerSelection == 'Paper' && computerSelection == 'Scissors') || (playerSelection == 'Scissors' && computerSelection == 'Rock')) {
         console.log(`${computerSelection} beats ${playerSelection}. You lose!`);
+    } else if ( playerSelection == computerSelection) {
+        console.log(`Tie! Try again.`)
     } else {
         console.log(`${playerSelection} beats ${computerSelection}. You win!`)
     }
 };
-console.log(rockPaperScissors(playerSelection, computerSelection));
+
+let game = function() {
+    Create Counters 
+    loop
+    nest playRound inside of here
+    add Counters
+    add returns
+    
+}
