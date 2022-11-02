@@ -10,17 +10,16 @@ function playRound() {
     console.log(computerSelection);
 
     if (playerSelection === 'Rock' && computerSelection === 'Paper') {
-        console.log(`${computerSelection} beats ${playerSelection}. You lose!`);
+        return `${computerSelection} beats ${playerSelection}. You lose!`;
     } else if (playerSelection === 'Paper' && computerSelection === 'Scissors') {
-        console.log(`${computerSelection} beats ${playerSelection}. You lose!`);
+        return `${computerSelection} beats ${playerSelection}. You lose!`;
     } else if (playerSelection === 'Scissors' && computerSelection === 'Rock') {
-        console.log(`${computerSelection} beats ${playerSelection}. You lose!`);
+        return `${computerSelection} beats ${playerSelection}. You lose!`;
     } else if (playerSelection === computerSelection) {
-        console.log(`Tie! Try again.`);
+        return `Tie! Try again.`;
     } else {
-        console.log(`${playerSelection} beats ${computerSelection}. You win!`);
+        return `${playerSelection} beats ${computerSelection}. You win!`;
     };
-    return playerScore
 };
 
 
