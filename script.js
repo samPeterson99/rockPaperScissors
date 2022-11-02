@@ -1,24 +1,29 @@
+//generates a random computer answer
 function getComputer() {
     let options = ['Rock', 'Paper', 'Scissors'];
     return options[(Math.floor(Math.random() * options.length))];
 }
 
+//prompts player for answer and formats
 function getPlayer() {
     let playerReply = prompt("Choose Rock, Paper, or Scissors:");
     let playerSelection = playerReply.replace((playerReply), (playerReply.charAt(0).toUpperCase() + playerReply.slice(1).toLowerCase()));
     return playerSelection;
 }
 
+//creates scoreboard
 let playerScore = 0;
 let computerScore = 0;
 
+//code for one iteration of the game.
+//personal note: code acts because it pulls new Selections, alters score.
 function playRound() {
     let playerSelection = getPlayer()
     let computerSelection = getComputer()
-    let prompt = ''
     console.log(playerSelection);
     console.log(computerSelection);
 
+    // includes scorekeeper for game()
     if (playerSelection === 'Rock' && computerSelection === 'Paper') {
         computerScore++;
         console.log(`${computerSelection} beats ${playerSelection}. You lose!`);
@@ -34,12 +39,14 @@ function playRound() {
         playerScore++;
         console.log(`${playerSelection} beats ${computerSelection}. You win!`);
     };
-
-    return prompt
 };
 
-
+// very simple loop, will try to rewrite loop in better way. provides final score
+// personal note: code acts because it replays a working function then uses its output.
 function game() {
+    playerScore = 0
+    computerScore = 0
+    
     for (let i = 0; i < 5; i++) {
         playRound() 
         };
@@ -51,16 +58,3 @@ function game() {
         return `Tie game! The score was ${computerScore} to ${playerScore}. Maybe we can do that thing from the movie War Games.`
     }
     };
-
-
-
-function getPlayer() {
-    let playerReply = prompt("Choose Rock, Paper, or Scissors:");
-    let playerSelection = playerReply.replace((playerReply), (playerReply.charAt(0).toUpperCase() + playerReply.slice(1).toLowerCase()));
-    return playerSelection;
-}
-    
-
-
-
-
