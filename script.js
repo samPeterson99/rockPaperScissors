@@ -1,4 +1,4 @@
-//generates a random computer answer
+d//generates a random computer answer
 function getComputer() {
     let options = ['Rock', 'Paper', 'Scissors'];
     return options[(Math.floor(Math.random() * options.length))];
@@ -41,12 +41,15 @@ function playRound() {
     };
 };
 
+
+
 // very simple loop, will try to rewrite loop in better way. provides final score
 // personal note: code acts because it replays a working function then uses its output.
-function game() {
+/*function game() {
+//    //reset scores
     playerScore = 0
     computerScore = 0
-    
+
     for (let i = 0; i < 5; i++) {
         playRound() 
         };
@@ -57,4 +60,4 @@ function game() {
     } else {
         return `Tie game! The score was ${computerScore} to ${playerScore}. Maybe we can do that thing from the movie War Games.`
     }
-    };
+    }; */
