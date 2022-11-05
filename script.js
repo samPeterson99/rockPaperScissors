@@ -1,4 +1,4 @@
-d//generates a random computer answer
+//generates a random computer answer
 function getComputer() {
     let options = ['Rock', 'Paper', 'Scissors'];
     return options[(Math.floor(Math.random() * options.length))];
@@ -17,8 +17,8 @@ let computerScore = 0;
 
 //code for one iteration of the game.
 //personal note: code acts because it pulls new Selections, alters score.
-function playRound() {
-    let playerSelection = getPlayer()
+function playRound(selection) {
+    let playerSelection = selection;
     let computerSelection = getComputer()
     console.log(playerSelection);
     console.log(computerSelection);
@@ -41,7 +41,23 @@ function playRound() {
     };
 };
 
+const bbox = document.querySelector('.bbox')
+const rock = document.querySelector('#rock');
+rock.addEventListener('click', () => {
+    console.log('Rock');
+    playRound('Rock');
 
+});
+const paper = document.querySelector('#paper');
+paper.addEventListener('click', () => {
+    console.log('Paper');
+    playRound('Paper');
+});
+const scissors = document.querySelector('#scissors');
+scissors.addEventListener('click', () => {
+    console.log('Scissors');
+    playRound('Scissors');
+});
 
 // very simple loop, will try to rewrite loop in better way. provides final score
 // personal note: code acts because it replays a working function then uses its output.
