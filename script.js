@@ -23,21 +23,23 @@ function playRound(selection) {
     console.log(playerSelection);
     console.log(computerSelection);
 
+
+
     // includes scorekeeper for game()
     if (playerSelection === 'Rock' && computerSelection === 'Paper') {
         computerScore++;
-        console.log(`${computerSelection} beats ${playerSelection}. You lose!`);
+        winner.textContent = (`${computerSelection} beats ${playerSelection}. You lose!`);
     } else if (playerSelection === 'Paper' && computerSelection === 'Scissors') {
         computerScore++;
-        console.log(`${computerSelection} beats ${playerSelection}. You lose!`);
+        winner.textContent = (`${computerSelection} beats ${playerSelection}. You lose!`);
     } else if (playerSelection === 'Scissors' && computerSelection === 'Rock') {
         computerScore++;
-        console.log(`${computerSelection} beats ${playerSelection}. You lose!`);
+        winner.textContent = (`${computerSelection} beats ${playerSelection}. You lose!`);
     } else if (playerSelection === computerSelection) {
-        console.log(`Tie! Try again.`);
+        winner.textContent = (`Tie! Try again.`);
     } else {
         playerScore++;
-        console.log(`${playerSelection} beats ${computerSelection}. You win!`);
+        winner.textContent = (`${playerSelection} beats ${computerSelection}. You win!`);
     };
 };
 
@@ -59,12 +61,25 @@ scissors.addEventListener('click', () => {
     playRound('Scissors');
 });
 
+const data = document.querySelector('.data');
+
+const winner = document.querySelector('h3');
+winner.textContent = 'Play a game!';
+winner.classList.add('winner')
+const score = document.createElement('h3');
+score.classList.add('score');
+
+
+
+
 // very simple loop, will try to rewrite loop in better way. provides final score
 // personal note: code acts because it replays a working function then uses its output.
-/*function game() {
+function game() {
 //    //reset scores
     playerScore = 0
     computerScore = 0
+
+    score.textContent = `${playerScore} - ${computerScore}`
 
     for (let i = 0; i < 5; i++) {
         playRound() 
@@ -76,4 +91,6 @@ scissors.addEventListener('click', () => {
     } else {
         return `Tie game! The score was ${computerScore} to ${playerScore}. Maybe we can do that thing from the movie War Games.`
     }
-    }; */
+    }; 
+
+    //game works, display does not
