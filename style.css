@@ -29,11 +29,13 @@ button {
 
 .ultimate {
     display: flex;
-
 }
 
 .bigWinner {
-    background-color: red;
-    height: 100px;
+    height: auto;
     width: auto;
+    margin: 100px;
+    text-align: center;
+    color: red;
+    font-size: 80px;
 }

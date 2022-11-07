@@ -23,6 +23,7 @@ function playRound(selection) {
     console.log(playerSelection);
     console.log(computerSelection);
 
+
     // includes scorekeeper for game()
     if (playerSelection === 'Rock' && computerSelection === 'Paper') {
         computerScore++;
@@ -40,8 +41,11 @@ function playRound(selection) {
         playerScore++;
         winner.textContent = (`${playerSelection} beats ${computerSelection}. You win!`);
     };
+    bigWinner.textContent = `${finale(playerScore, computerScore)}`
     return score.textContent = `Player: ${playerScore}    Computer:${computerScore}`
 };
+
+
 
 
 const bbox = document.querySelector('.bbox')
@@ -74,19 +78,19 @@ score.textContent = `Player: ${playerScore}    Computer:${computerScore}`
 const ultimate =document.querySelector('.ultimate')
 const bigWinner = document.querySelector('.bigWinner')
 bigWinner.classList.add('.bigWinner')
+bigWinner.textContent = `${finale(playerScore, computerScore)}`
 
 //data.appendChild(winner);
 //data.appendChild(score);
 
-
 function finale(playerScore, computerScore) {
     
     if (playerScore >= 5) {
-        bigWinner.textContent = `Humanity wins! ${playerScore} to ${computerScore}`
+        return`Humanity wins! ${playerScore} to ${computerScore}`
    } else if (computerScore >= 5) {
-       bigWinner.textContent = `Humanity loses. ${computerScore} to ${playerScore}. Perdition beckons.`
+        return `Humanity loses. ${computerScore} to ${playerScore}. Perdition beckons.`
    } else {
-       bigWinner.textContent = ``
+        return  ``
     } 
 }
 
