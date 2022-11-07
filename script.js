@@ -23,11 +23,10 @@ function playRound(selection) {
     console.log(playerSelection);
     console.log(computerSelection);
 
-
-
     // includes scorekeeper for game()
     if (playerSelection === 'Rock' && computerSelection === 'Paper') {
         computerScore++;
+        console.log(computerScore);
         winner.textContent = (`${computerSelection} beats ${playerSelection}. You lose!`);
     } else if (playerSelection === 'Paper' && computerSelection === 'Scissors') {
         computerScore++;
@@ -41,7 +40,9 @@ function playRound(selection) {
         playerScore++;
         winner.textContent = (`${playerSelection} beats ${computerSelection}. You win!`);
     };
+    return score.textContent = `Player: ${playerScore}    Computer:${computerScore}`
 };
+
 
 const bbox = document.querySelector('.bbox')
 const rock = document.querySelector('#rock');
@@ -63,34 +64,55 @@ scissors.addEventListener('click', () => {
 
 const data = document.querySelector('.data');
 
-const winner = document.querySelector('h3');
+const winner = document.querySelector('.winner');
 winner.textContent = 'Play a game!';
 winner.classList.add('winner')
-const score = document.createElement('h3');
+const score = document.querySelector('.score');
 score.classList.add('score');
+score.textContent = `Player: ${playerScore}    Computer:${computerScore}`
+
+const ultimate =document.querySelector('.ultimate')
+const bigWinner = document.querySelector('.bigWinner')
+bigWinner.classList.add('.bigWinner')
+
+//data.appendChild(winner);
+//data.appendChild(score);
 
 
+function finale(playerScore, computerScore) {
+    
+    if (playerScore >= 5) {
+        bigWinner.textContent = `Humanity wins! ${playerScore} to ${computerScore}`
+   } else if (computerScore >= 5) {
+       bigWinner.textContent = `Humanity loses. ${computerScore} to ${playerScore}. Perdition beckons.`
+   } else {
+       bigWinner.textContent = ``
+    } 
+}
 
 
 // very simple loop, will try to rewrite loop in better way. provides final score
 // personal note: code acts because it replays a working function then uses its output.
-function game() {
+/*function game() {
 //    //reset scores
-    playerScore = 0
-    computerScore = 0
 
-    score.textContent = `${playerScore} - ${computerScore}`
+
+    score.textContent = `${playerScore}-${computerScore}`;
 
     for (let i = 0; i < 5; i++) {
         playRound() 
         };
-    if (playerScore > computerScore) {
-        return `Humanity wins! ${playerScore} to ${computerScore}`
-    } else if (playerScore < computerScore) {
-        return `Humanity loses. ${computerScore} to ${playerScore}. Perdition beckons.`
-    } else {
-        return `Tie game! The score was ${computerScore} to ${playerScore}. Maybe we can do that thing from the movie War Games.`
-    }
-    }; 
+    function nameWinner(){
+        if (playerScore > computerScore) {
+             score.textContent = `Humanity wins! ${playerScore} to ${computerScore}`
+        } else if (playerScore < computerScore) {
+            score.textContent = `Humanity loses. ${computerScore} to ${playerScore}. Perdition beckons.`
+        } else {
+            score.textContent = `Tie game! The score was ${computerScore} to ${playerScore}. Maybe we can do that thing from the movie War Games.`
+        }
+        } 
+         }; */
+
+
 
     //game works, display does not
